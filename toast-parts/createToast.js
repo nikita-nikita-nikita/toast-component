@@ -10,7 +10,7 @@ function createToastElement (body, title, id, options){
     }
     toast.appendChild(createHeader(title, closeFunction));
     toast.appendChild(createBody(body));
-    return toast;
+    return {toast, closeFunction};
 }
 
 export default createToastElement;

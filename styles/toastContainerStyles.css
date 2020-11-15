@@ -1,0 +1,8 @@
+.toasts-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
