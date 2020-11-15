@@ -1,6 +1,6 @@
 {
   "name": "nikita-toast-component",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "assignment 2",
   "main": "src/index.js",
   "scripts": {

@@ -105,3 +105,6 @@ options:
 | `rootElement` | `body` - default, your element, where toasts will be appended|
 | `doNotGenerateContainer` | `false` - default, `true` - toastManager will not create toast container and will append toast directly in rootElement|
 | `position` | `"top-rigth"` - default, `"top-left"`, `"bottom-left"`, `"bottom-right"`|
+
+ 
+[example page](https://nikita-nikita-nikita.github.io/toast-component-example-page/)
