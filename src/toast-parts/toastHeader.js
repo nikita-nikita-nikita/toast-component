@@ -1,10 +1,10 @@
-function createHeader(title, closeFunction, options) {
+function createHeader(title, closeFunction, closeOnClick) {
     const header = document.createElement("header");
     header.classList.add('toast__toast-header');
 
     header.appendChild(createHeaderTitle(title));
     header.appendChild(createSmallTimeText());
-    header.appendChild(closeButton(closeFunction));
+    header.appendChild(closeButton(closeFunction, closeOnClick));
 
     return header
 }
@@ -25,11 +25,11 @@ function createSmallTimeText(time = 'just now') {
     return strongTitle;
 }
 
-function closeButton(closeFunction, options, closeText = '&times;', ) {
+function closeButton(closeFunction, closeOnClick, closeText = '&times;', ) {
     const closeButton = document.createElement('button');
     closeButton.classList.add('toast-header__close-button');
     closeButton.innerHTML = `<span class="close-button__close-icon">${closeText}</span>`;
-    closeButton.addEventListener('click', closeFunction);
+    if(!closeOnClick) closeButton.addEventListener('click', closeFunction);
 
     return closeButton;
 }

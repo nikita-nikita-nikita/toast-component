@@ -7,8 +7,8 @@ function createToastElement (
     {
         id,
         status = "",
-        closeToast,
-        ...options}){
+        closeOnClick = false,
+        closeToast}){
     const toast = document.createElement('div');
     toast.classList.add('toast');
     if(id) toast.id = id;
@@ -17,11 +17,12 @@ function createToastElement (
         setTimeout(() => {
             toast.classList.add('deleted-toast');
         }, 1000);
-        closeToast();
+        if(closeToast) closeToast();
     }
-    toast.appendChild(createHeader(title, closeFunction));
+    toast.appendChild(createHeader(title, closeFunction, closeOnClick));
     toast.appendChild(createBody(body));
-    toast.classList.add(`toast-${status}`)
+    toast.classList.add(`toast-${status}`);
+    if(closeOnClick) toast.addEventListener('click', closeFunction);
     return {toast, closeFunction};
 }
 
