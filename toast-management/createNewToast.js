@@ -1,8 +1,10 @@
 import ToastManger from "./toastManagementClass.js";
 
-
-function generateNewToast(content, options ){
+function generateManagerWithContent(content, options ){
     return  new ToastManger(content, options);
 }
+function generateManager(options ){
+    return  new ToastManger(null, options);
+}
 
-export {generateNewToast};
+export {generateManagerWithContent, generateManager};
