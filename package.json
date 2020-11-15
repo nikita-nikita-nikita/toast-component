@@ -1,8 +1,8 @@
 {
-  "name": "toast-component",
-  "version": "1.0.0",
+  "name": "nikita-toast-component",
+  "version": "1.1.1",
   "description": "assignment 2",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

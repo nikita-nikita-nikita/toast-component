@@ -1,4 +1,4 @@
-import {createToastElement} from "./toast-parts/index.js";
+import {createToastElement} from "./toast-parts";
 import {generateManagerWithContent, generateManager} from "./toast-management/createNewToast.js";
 
 export {
