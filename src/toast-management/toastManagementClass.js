@@ -3,17 +3,6 @@ import getUuid from "../tools/myUuid.js";
 
 
 export default class ToastManger {
-
-    options = {};
-
-    toastContainer = null;
-
-    toasts = [];
-
-    lastCreatedToast = null;
-
-    oldestToast = null;
-
     constructor(
         content,
         // options
@@ -22,6 +11,14 @@ export default class ToastManger {
             doNotGenerateContainer,
             title,
             ...options}) {
+
+        this.options = {};
+
+        this.toasts = [];
+
+        this.lastCreatedToast = null;
+
+        this.oldestToast = null;
         this.options = options;
         this.toastContainer = doNotGenerateContainer
             ? rootElement
@@ -30,7 +27,7 @@ export default class ToastManger {
 
     }
 
-    generateToastsContainer = (rootElement, position = 'top-right') => {
+    generateToastsContainer(rootElement, position = 'top-right'){
         const toastsContainer = document.createElement('div');
         toastsContainer.classList.add('toasts-container');
         toastsContainer.classList.add(`toasts-position-${position}`);
@@ -38,7 +35,8 @@ export default class ToastManger {
         return toastsContainer;
     }
 
-    createNew = (content, title = "") => {
+    createNew(content, title = ""){
+        if(!content) return ;
         const id = getUuid();
         const timeOut = this.options.autoCloseDuration
             ? setTimeout(() => {
@@ -65,7 +63,6 @@ export default class ToastManger {
             id,
             toast: toastComponent,
             closeToast: closeFunction,
-
         };
         this.lastCreatedToast = toast;
         if(!this.oldestToast) this.oldestToast = toast;
@@ -75,11 +72,11 @@ export default class ToastManger {
 
     };
 
-    closeLast = () => {
+    closeLast(){
         if (this.lastCreatedToast) this.lastCreatedToast.closeToast();
     }
 
-    closeOld = () => {
+    closeOld(){
         if (this.lastCreatedToast) this.oldestToast.closeToast();
     }
 }
